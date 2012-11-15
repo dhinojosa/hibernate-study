@@ -1,0 +1,1 @@
+INSERT INTO PUBLIC.ALBUMS (NAME, YEAR) values ('Hello', 1984)
