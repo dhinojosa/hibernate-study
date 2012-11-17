@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.evolutionnext.hibernate">
+
+    <class name="Act" table="Acts">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+
+        <set name="albums" outer-join="true" table="album_acts" inverse="true" cascade="all">
+            <key column="actID"/>
+            <many-to-many column="albumID" class="Album"/>
+        </set>
+
+        <joined-subclass name="Artist" table="Artists">
+            <key column="actID"/>
+            <property name="stageName" type="string"/>
+            <property name="firstName" type="string"/>
+            <property name="lastName" type="string"/>
+        </joined-subclass>
+
+        <joined-subclass name="Band" table="Bands">
+            <key column="actID"/>
+            <property name="name" type="string"/>
+        </joined-subclass>
+    </class>
+
+    <class name="Album" table="Albums">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="text"/>
+        <property name="year" type="short"/>
+        <set name="acts" outer-join="true" table="album_acts"  cascade="all">
+            <key column="albumID"/>
+            <many-to-many column="actID" class="Act"/>
+        </set>
+    </class>
+</hibernate-mapping>
