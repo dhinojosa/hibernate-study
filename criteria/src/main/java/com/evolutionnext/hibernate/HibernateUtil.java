@@ -1,4 +1,4 @@
-package hibernate;
+package com.evolutionnext.hibernate;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

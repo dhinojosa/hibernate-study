@@ -1,17 +1,13 @@
-package hibernate;
+package com.evolutionnext.hibernate;
 
 import com.google.common.base.Objects;
 
-import java.util.HashSet;
-import java.util.Set;
 
-public class Artist extends Person {
-    private Set<Album> albums;
+public class Artist extends Act {
     private String stageName;
+    private String firstName;
+    private String lastName;
 
-    public Artist() {
-        this.albums = new HashSet<Album>();
-    }
 
     public String getStageName() {
         return stageName;
@@ -21,13 +17,22 @@ public class Artist extends Person {
         this.stageName = stageName;
     }
 
-    public Set<Album> getAlbums() {
-        return albums;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAlbums(Set<Album> albums) {
-        this.albums = albums;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -36,27 +41,23 @@ public class Artist extends Person {
 
         return Objects.equal(other.getFirstName(), this.getFirstName()) &&
                 Objects.equal(other.getLastName(), this.getLastName()) &&
-                Objects.equal(other.albums, this.albums) &&
+                Objects.equal(other.getAlbums(), this.getAlbums()) &&
                 Objects.equal(other.stageName, this.stageName);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(this.getFirstName(), this.getLastName(),
-                this.albums, this.stageName);
+                this.getAlbums(), this.stageName);
     }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("firstName", super.getFirstName())
-                .add("lastName", super.getLastName())
-                .add("albums", this.getAlbums())
+                .add("firstName", this.getFirstName())
+                .add("lastName", this.getLastName())
+                .add("albums", super.getAlbums())
                 .add("stageName", this.getStageName())
                 .toString();
-    }
-
-    public void addAlbum(Album album) {
-        this.albums.add(album);
     }
 }

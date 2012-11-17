@@ -1,0 +1,22 @@
+Custom Hibernate 3.6.10
+For people already using it, Non Beginners
+
+Level 1: Must Cover
+Criteria API
+Transactions x 3
+Cascading
+Grasp for Internals
+Trouble shooting.
+Grails Integration
+
+Level 2:
+Eager fetching
+Lifecycle Handling
+Optimistic/Pessimistic Locking with Transactions.
+Performance Tuning.
+2nd Level Caching.
+
+Level 3: If time remains
+Named Queries, Native SQL
+Entity Modelling (Subclasses), Associations
+Advanced JPA Concepts

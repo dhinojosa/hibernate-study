@@ -1,15 +1,18 @@
-package hibernate;
+package com.evolutionnext.hibernate;
 
 import com.google.common.base.Objects;
+import org.hibernate.annotations.ManyToAny;
 
+import javax.persistence.*;
 import java.util.Set;
 
-public class Band {
+public class Band extends Act {
     private Long id;
-    private Set<Album> albums;
     private Set<Artist> artists;
     private String name;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -26,14 +29,11 @@ public class Band {
         this.name = name;
     }
 
-    public Set<Album> getAlbums() {
-        return albums;
-    }
 
-    public void setAlbums(Set<Album> albums) {
-        this.albums = albums;
-    }
-
+    @ManyToMany(mappedBy = "bands")
+    @JoinTable(name="band_artists",
+            joinColumns = {@JoinColumn(name = "artistID")},
+            inverseJoinColumns = {@JoinColumn(name = "bandID")})
     public Set<Artist> getArtists() {
         return artists;
     }
@@ -47,7 +47,7 @@ public class Band {
         if (!(o instanceof Band)) return false;
         Band other = (Band) o;
         return  Objects.equal(other.name, this.name) &&
-                Objects.equal(other.albums, this.albums) &&
+                Objects.equal(other.getAlbums(), this.getAlbums()) &&
                 Objects.equal(other.artists, this.artists);
     }
 
@@ -55,7 +55,7 @@ public class Band {
     public int hashCode() {
         return Objects.hashCode(
                 this.name,
-                this.albums,
+                this.getAlbums(),
                 this.artists);
     }
 
@@ -63,7 +63,7 @@ public class Band {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("name", name)
-                .add("albums", albums)
+                .add("albums", getAlbums())
                 .add("artists", artists)
                 .toString();
     }

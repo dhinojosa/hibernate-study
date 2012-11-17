@@ -1,13 +1,23 @@
-package hibernate;
+package com.evolutionnext.hibernate;
 
 import com.google.common.base.Objects;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Album {
     private Long id;
     private String name;
     private short year;
+    public Set<Act> acts;
 
+    public Album() {
+        this.acts = new HashSet<Act>();
+    }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -32,6 +42,14 @@ public class Album {
         this.year = year;
     }
 
+    public Set<Act> getActs() {
+        return acts;
+    }
+
+    protected void setActs(Set<Act> acts) {
+        this.acts = acts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Album)) return false;
@@ -50,5 +68,9 @@ public class Album {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("name", name).add("year", year).toString();
+    }
+
+    public void addAct(Act act) {
+        this.acts.add(act);
     }
 }
