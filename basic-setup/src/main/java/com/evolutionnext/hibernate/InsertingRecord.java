@@ -2,7 +2,7 @@ package com.evolutionnext.hibernate;
 
 import org.hibernate.classic.Session;
 
-public class Runner {
+public class InsertingRecord {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();

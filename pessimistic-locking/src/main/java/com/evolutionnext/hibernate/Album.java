@@ -2,7 +2,6 @@ package com.evolutionnext.hibernate;
 
 import com.google.common.base.Objects;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +15,6 @@ public class Album {
         this.acts = new HashSet<Act>();
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

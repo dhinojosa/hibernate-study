@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="true" monitoring="autodetect" dynamicConfig="true">
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="true"
+            timeToIdleSeconds="10"
+            timeToLiveSeconds="10"
+            overflowToDisk="true"
+            diskSpoolBufferSizeMB="300"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="10"
+            memoryStoreEvictionPolicy="LRU"/>
+    <cache
+            name="com.evolutionnext.hibernate.Album"
+            maxEntriesLocalHeap="100"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"
+            />
+</ehcache>

@@ -15,7 +15,8 @@
         <module>cascading</module>
         <module>transactions</module>
         <module>fetching</module>
-        <module>locking</module>
+        <module>optimistic-locking</module>
+        <module>pessimistic-locking</module>
         <module>caching</module>
         <module>versioning</module>
     </modules>

@@ -9,8 +9,8 @@
         <id name="id" column="id">
             <generator class="native"/>
         </id>
-        <property name="name" type="text"/>
-        <property name="year" type="short"/>
+        <property name="name" type="text" lazy="false"/>
+        <property name="year" type="short" lazy="false"/>
     </class>
 
     <class name="Artist" table="Artists">
