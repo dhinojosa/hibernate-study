@@ -11,8 +11,7 @@ public class Band extends Act {
     private Set<Artist> artists;
     private String name;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Long getId() {
         return id;
     }
@@ -29,11 +28,6 @@ public class Band extends Act {
         this.name = name;
     }
 
-
-    @ManyToMany(mappedBy = "bands")
-    @JoinTable(name="band_artists",
-            joinColumns = {@JoinColumn(name = "artistID")},
-            inverseJoinColumns = {@JoinColumn(name = "bandID")})
     public Set<Artist> getArtists() {
         return artists;
     }

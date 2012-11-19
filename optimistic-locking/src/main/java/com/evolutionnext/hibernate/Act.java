@@ -13,8 +13,6 @@ public class Act {
         this.albums = new HashSet<Album>();
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

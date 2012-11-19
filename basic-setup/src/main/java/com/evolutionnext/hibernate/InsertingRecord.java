@@ -18,4 +18,9 @@ public class InsertingRecord {
         session.getTransaction().commit();
     }
 
+
+    //1. User loads product on UI
+    //2. Background modifies the product (computer/timed)
+    //
+
 }

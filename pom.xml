@@ -14,7 +14,7 @@
         <module>criteria</module>
         <module>cascading</module>
         <module>transactions</module>
-        <module>fetching</module>
+        <module>batch-insert</module>
         <module>optimistic-locking</module>
         <module>pessimistic-locking</module>
         <module>caching</module>

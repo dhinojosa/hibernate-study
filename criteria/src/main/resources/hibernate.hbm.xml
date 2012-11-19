@@ -10,7 +10,7 @@
             <generator class="native"/>
         </id>
 
-        <set name="albums" outer-join="true" table="album_acts" inverse="true" cascade="all">
+        <set name="albums" lazy="false" outer-join="true" table="album_acts" inverse="true" cascade="all">
             <key column="actID"/>
             <many-to-many column="albumID" class="Album"/>
         </set>

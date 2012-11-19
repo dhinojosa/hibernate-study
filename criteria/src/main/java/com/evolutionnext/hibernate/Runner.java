@@ -26,15 +26,24 @@ public class Runner {
 
         tx.commit();
 
+        System.out.println("----");
+
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         tx = session.beginTransaction();
         Criteria artistCriteria = session.createCriteria(Artist.class)
                 .add(Restrictions.like("firstName", "Mi%"));
         Criteria albumCriteria = artistCriteria.createCriteria("albums");
+//        albumCriteria.add(Restrictions.like("name", "%I%"));
         artistCriteria.addOrder(Order.asc("firstName"));
         albumCriteria.add(Restrictions.between("year", (short) 1900, (short) 2010));
         System.out.println(artistCriteria.list());
         tx.commit();
     }
+
+    //Agenda
+    //cascading
+    //fetching (more)
+    //batch-insert
+    //2nd level caching
 
 }
