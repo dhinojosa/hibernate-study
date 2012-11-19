@@ -1,0 +1,6 @@
+10:49:49,597  INFO ENGINE:? - Checkpoint start
+10:49:49,602  INFO ENGINE:? - checkpointClose start
+10:49:49,628  INFO ENGINE:? - checkpointClose end
+10:49:49,635  INFO ENGINE:? - Checkpoint end
+10:54:24,134  INFO ENGINE:? - checkpointClose start
+10:54:24,200  INFO ENGINE:? - checkpointClose end
